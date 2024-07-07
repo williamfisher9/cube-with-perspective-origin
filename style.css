@@ -1,0 +1,120 @@
+:root {
+    --width: 100svw;
+    --height: 100svh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: var(--width);
+    height: var(--height);
+    background-color: #333;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    perspective: 3000px;
+    transform-style: preserve-3d;
+}
+
+/* if size is not giver, it will appear as a dot in the middle of the screen */
+.cube {
+    width: 600px;
+    height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    perspective: 6000px;
+    perspective-origin: left;
+
+    border: 2px solid #aaaaaa;
+}
+
+.side {
+    width: 200px;
+    height: 200px;
+    box-shadow: 2px 2px 10px #fff, -2px -2px 10px #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+
+    background-color: rgb(95, 158, 160, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: 0.5s;
+}
+
+.side > h1 {
+    color: #fff;
+}
+
+.face{
+    transform: translateZ(150px);
+    z-index: 1;
+}
+
+.back{
+    transform: translateZ(-150px);
+}
+
+.right{
+    transform: translateX(150px) rotateY(90deg);
+}
+
+.left{
+    transform: translateX(-150px) rotateY(-90deg);
+}
+
+.up{
+    transform: translateY(-150px) rotateX(90deg);
+}
+
+.down{
+    transform: translateY(150px) rotateX(-90deg);
+}
+
+.cube:hover {
+
+    .face{
+        transform: translateZ(100px);
+    }
+    
+    .back{
+        transform: translateZ(-100px);
+    }
+    
+    .right{
+        transform: translateX(100px) rotateY(90deg);
+    }
+    
+    .left{
+        transform: translateX(-100px) rotateY(-90deg);
+    }
+    
+    .up{
+        transform: translateY(-100px) rotateX(90deg);
+    }
+    
+    .down{
+        transform: translateY(100px) rotateX(-90deg);
+    }
+
+}
